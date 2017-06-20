@@ -1,0 +1,39 @@
+{
+  "name": "azimuth-js",
+  "version": "1.0.0",
+  "description": "Automatically generate beautiful animated star fields and warp fields",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielleng/azimuth-js.git"
+  },
+  "keywords": [
+    "HTML5 Canvas",
+    "Star Fields",
+    "Warp Fields"
+  ],
+  "author": {
+    "name": "Daniel Leng",
+    "email": "danlengjj@gmail.com",
+    "url": "http://dleng.xyz"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielleng/azimuth-js/issues"
+  },
+  "homepage": "https://github.com/danielleng/azimuth-js#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "jest": "^20.0.4",
+    "pump": "^1.0.2",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
