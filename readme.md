@@ -64,3 +64,7 @@ The source code is written in ES6 syntax, and transpiled into ES5 using Babel vi
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgements
+
+1. Simple Javascript Easing Functions - by [Gaëtan Renaudeau](https://gist.github.com/gre/1650294)
