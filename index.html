@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Azimuth JS | Canvas library for creating Star Fields and Warp Fields</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <header>
+        <h2>Azimuth JS</h2>
+        <h3>A Javascript Library for creating Star Fields and Warp Fields on HTML5 Canvas elements.</h3>
+    </header>
+    
+    <canvas id="azimuthCanvas" style="width: 100%; height: 100%; background-color: black;"></canvas>
+    
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="dist/js/azimuth.min.js"></script>
+    
+    <script>
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
+        
+        let cvs = document.getElementById('azimuthCanvas');
+        let starField = new Azimuth();
+
+        starField.init(cvs, {
+            starConfigs: {
+                renderSize: 100,
+                minStars: 1,
+                maxStars: 8
+            },
+            warpConfigs: {
+                renderSize: 10,
+                minEntities: 5,
+                maxEntities: 10
+            }
+        });
+        
+        // Listen for window resizing events with a debounce method, then reset Azimuth accordingly
+        $( window ).resize( debounce(function() {
+            if (starField) {
+                starField.reset()
+            }
+        }));
+        
+        function animate() {
+            starField.animate();
+            window.requestAnimationFrame(animate);
+        }
+        animate();
+        
+    </script>
+</body>
+</html>
